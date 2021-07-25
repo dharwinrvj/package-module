@@ -1,0 +1,360 @@
+<%- include('../layouts/adminheader.ejs') %>
+<h3 class="text-center m-1">
+    Faculty Bio-Data Form
+</h3>
+<div class="row m-1 p-1">
+    <div class="col-sm-12">
+        <form method="POST" action="/vcetadmin/faculty/addfaculty">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fname">Faculty Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname" required
+                        placeholder="Enter Faculty Name">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fdob">DOB</label>
+                    <input type="date" class="form-control" id="fdob" name="fdob" required>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="fgender">Gender</label>
+                    <select class="custom-select mr-sm-2" id="fgender" name="fgender" required>
+                        <option selected>Choose</option>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                        <option value="TRANSGENDER">TRANSGENDER</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fdept">Department</label>
+                    <select class="custom-select mr-sm-2" id="fdept" name="fdept" required>
+                        <option selected>Choose</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="IT">IT</option>
+                        <option value="MECH">MECH</option>
+                        <option value="ENGLISH">ENGLISH</option>
+                        <option value="PHYSICS">PHYSICS</option>
+                        <option value="CHEMISTRY">CHEMISTRY</option>
+                        <option value="MATHS">MATHS</option>
+                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                        <option value="OTHER">OTHER</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fdesignation">Designation</label>
+                    <input type="text" class="form-control" id="fdesignation" name="fdesignation" required
+                        placeholder="Designation">
+                </div>
+
+            </div>
+            <label for="faddress">
+                Residental Address
+            </label>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="faddress">Address</label>
+                    <input type="text" class="form-control" id="faddress" name="faddress" required
+                        placeholder="Flat/Door No., Street Name, Locatlity">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fcity">City</label>
+                    <input type="text" class="form-control" id="fcity" name="fcity" required placeholder="City">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fstate">State/Province </label>
+                    <input type="text" class="form-control" id="fstate" name="fstate" required
+                        placeholder="State/Province">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fzip">Zip</label>
+                    <input type="text" class="form-control" id="fzip" placeholder="Zip" name="fzip" required>
+                </div>
+            </div>
+            <label for="fpaddress">
+                Permanent Address
+            </label>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="fpaddress">Address</label>
+                    <input type="text" class="form-control" id="fpaddress" name="fpaddress" required
+                        placeholder="Flat/Door No., Street Name, Locatlity">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fpcity">City</label>
+                    <input type="text" class="form-control" id="fpcity" name="fpcity" required placeholder="City">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fpstate">State/Province </label>
+                    <input type="text" class="form-control" id="fpstate" name="fpstate" required
+                        placeholder="State/Province">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fpzip">Zip</label>
+                    <input type="text" class="form-control" id="fpzip" placeholder="Zip" name="fpzip" required>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="fnationality">Nationality</label>
+                    <select class="custom-select mr-sm-2" id="fnationality" name="fnationality" required>
+                        <option selected>Choose</option>
+                        <option value="INDIA">INDIA</option>
+                        <option value="OTHER">OTHER</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="fmobile">Mobile Number</label>
+                    <input type="number" class="form-control" id="fmobile" name="fmobile" required
+                        placeholder="Mobile Number">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="faltrmobile">Alternate Mobile Number</label>
+                    <input type="number" class="form-control" id="faltrmobile" name="faltrmobile" required
+                        placeholder="Alternate Mobile Number">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="femail">EMail ID</label>
+                    <input type="email" class="form-control" id="femail" name="femail" required placeholder="EMail ID">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="feducation">
+                        Educational Qualification
+                    </label>
+                    <script src="https://code.jquery.com/jquery-3.6.0.js"
+                        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+                    </script>
+                    <script>
+                        var edid = 2;
+                        $(document).ready(function () {
+                            $('#addnewedu').click(function () {
+
+                                var addedu =
+                                    "<tr><td><input readonly type='number' required name='fedusno" +
+                                    edid + "' value='" + edid +
+                                    "'></td><td><input type='text' placeholder='Degree' required name='fedudeg" +
+                                    edid +
+                                    "'</td><td><input type='text' placeholder='College & University' required name='feduclg" +
+                                    edid +
+                                    "'></td><td><input type='number' placeholder='Year of Passing' required name='feduyrofpass" +
+                                    edid +
+                                    "'></td><td><input type='number' placeholder='Marks in Percentage' required name='fedumark" +
+                                    edid +
+                                    "'></td><td><input type='text' placeholder='Class' required name='feduclass" +
+                                    edid + "'></td></tr>";
+                                $("#fedutbody").append(addedu);
+                                if (edid >= 5) $('#addnewedu').prop('disabled', true);
+                                edid++;
+                            })
+                        })
+                    </script>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">S.No.</th>
+                                    <th scope="col">Degree</th>
+                                    <th scope="col">College & University</th>
+                                    <th scope="col">Year of Passing</th>
+                                    <th scope="col">Marks in Percentage</th>
+                                    <th scope="col">Class</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fedutbody">
+                                <tr>
+                                    <td>
+                                        <input type="number" name="fedusno1" value="1" readonly required>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="fedudeg1" placeholder="Degree" required>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="feduclg1" placeholder="College & University" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" name="feduyrofpass1" placeholder="Year of Passing"
+                                            required>
+                                    </td>
+                                    <td>
+                                        <input type="number" name="fedumark1" placeholder="Marks in Percentage"
+                                            required>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="feduclass1" placeholder="Class" required>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="text-center bg-dark">
+                                <tr>
+                                    <td colspan="6">
+                                        <button id="addnewedu" type="button" class="btn btn-outline-light">Add
+                                            Education</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                var emid = 1;
+
+                $(document).ready(function () {
+
+                    $('#addnewemp').click(function () {
+                        var addemp = "<tr><td><input readonly type='number' required name='fempsno" +
+                            emid +
+                            "' value='" +
+                            emid +
+                            "'></td><td><input type='text' placeholder='Name of the College' required name='fempclg" +
+                            emid +
+                            "'></td><td><input type='text' placeholder='Designation' required  name='fempdes" +
+                            emid +
+                            "'></td><td><input type='date' placeholder='From Date' required name='fempfrom" +
+                            emid +
+                            "'></td><td><input type='date' placeholder='To Date' id='fempto" + emid +
+                            "' required name='fempto" +
+                            emid +
+                            "'></td></tr>"
+                        $('#femptbody').append(addemp);
+                        if (emid >= 8) $('#addnewemp').prop('disabled', true);
+                        emid++;
+
+                    })
+
+                })
+            </script>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="feducation">
+                        Employment History
+                    </label>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">S.No.</th>
+                                    <th scope="col">Name of the College</th>
+                                    <th scope="col">Designation</th>
+                                    <th scope="col">From Date</th>
+                                    <th scope="col">To Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="femptbody">
+
+                            </tbody>
+                            <tfoot>
+
+                                <tr class="text-center bg-dark">
+                                    <td colspan="5">
+                                        <button id="addnewemp" type="button" class="btn btn-outline-light">Add
+                                            Employment</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="femployeeid">Employee ID</label>
+                    <input type="text" class="form-control" id="femployeeid" name="femployeeid" required
+                        placeholder="Employee ID">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="fannaunivcode">Anna University Faculty Code</label>
+                    <input type="text" class="form-control" id="fannaunivcode" name="fannaunivcode" required
+                        placeholder="Anna University Faculty Code">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="faictecode">AICTE Faculty Code</label>
+                    <input type="text" class="form-control" id="faictecode" name="faictecode" required
+                        placeholder="AICTE Faculty Code">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="fpan">PAN Number</label>
+                    <input type="text" class="form-control" id="fpan" name="fpan" required placeholder="PAN Number">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="faadhar">Aadhar Number</label>
+                    <input type="number" class="form-control" id="faadhar" name="faadhar" required
+                        placeholder="Aadhar Number">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fcommmunity">Communnity</label>
+                    <input type="text" class="form-control" id="fcommmunity" name="fcommmunity" required
+                        placeholder="AICTE Faculty Code">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="freligion">Religion</label>
+                    <input type="text" class="form-control" id="freligion" name="freligion" required
+                        placeholder="Religion">
+                </div>
+            </div>
+            <label for="faddqualify">Additionla Qualification like GATE, NET etc</label>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="fexamname">Name of Examination</label>
+                    <input type="text" class="form-control" id="fexamname" name="fexamname"
+                        placeholder="Name of Examination">
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fexammarks">Marks in Percentage</label>
+                    <input type="number" class="form-control" id="fexammarks" name="fexammarks"
+                        placeholder="Marks in Percentage">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fexampercent">Year of Passing</label>
+                    <input type="number" class="form-control" id="fexampercent" name="fexampercent"
+                        placeholder="Year of Passing">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="fdoj">DOJ</label>
+                    <input type="date" class="form-control" id="fdoj" name="fdoj" required>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fdoctoral">Is Doctoral Degree</label>
+                    <select class="custom-select mr-sm-2" id="fdoctoral" name="fdoctoral" required>
+                        <option selected>Choose</option>
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 fdoctoralinfo"> <label for="fdoctoralthesis">Title of
+                        Thesis</label><input type="text" class="form-control" id="fdoctoralthesis"
+                        name="fdoctoralthesis" placeholder="Title of Thesis">
+                </div>
+                <div class="form-group col-md-4 fdoctoralinfo"><label for="fdoctoralaward"> In Which Ph.D was
+                        Awarded</label>
+                    <input type="text" class="form-control" id="fdoctoralaward" name="fdoctoralaward"
+                        placeholder="In Which Ph.D was Awarded">
+                </div>
+            </div>
+            <script>
+                $('.fdoctoralinfo').hide()
+                $(document).ready(function () {
+                    $('#fdoctoral').change(function () {
+                        var value = $(this).val();
+                        if (value === 'NO') $('.fdoctoralinfo').hide();
+                        if (value === 'YES') $('.fdoctoralinfo').show();
+                    })
+                })
+            </script>
+            <input type="submit" name="Submit" class="btn btn-lg btn-dark my-3">
+        </form>
+    </div>
+</div>
+<%- include('../layouts/adminfooter.ejs') %>
